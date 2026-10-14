@@ -180,7 +180,7 @@ const CURRENCY_RATES = {
 
 export default function App() {
   const [currentUser] = useState(SUPER_ADMIN_OWNER);
-  const [ownerGodMode, setOwnerGodMode] = useState(true);
+  const [ownerGodMode, setOwnerGodMode] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
 
   const [genres, setGenres] = useState(INITIAL_GENRES);
@@ -638,4 +638,18 @@ export default function App() {
             <h3 className="text-lg font-extrabold text-white">Executing Owner Priority Render...</h3>
             <p className="text-xs text-[#F5B700] font-mono">{renderStageText}</p>
             <div className="w-full h-2.5 bg-black rounded-full overflow-hidden">
-              <div class
+              <div className="h-full bg-[#F5B700] transition-all" style={{ width: `${renderProgress}%` }} />
+            </div>
+          </div>
+        </div>
+      )}
+
+      <main className="max-w-3xl mx-auto mt-10 p-6 rounded-2xl border border-purple-900/50 bg-black/30 text-center space-y-3">
+        <p className="text-xs font-bold uppercase text-[#F5B700]">Preview: step {activeStep}</p>
+        <p className="text-sm text-gray-300">
+          This screen is still being rebuilt. The music-video generator is a design preview and does not create real songs or videos yet.
+        </p>
+      </main>
+    </div>
+  );
+}
